@@ -12,25 +12,23 @@ class Login extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("Логин"),
             Container(
               margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
               child: TextField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
+                  border: OutlineInputBorder(borderRadius: const BorderRadius.all(const Radius.circular(10.0))),
+                  labelText: 'Логин',
                 ),
               ),
             ),
-            Text("Пароль"),
             Container(
               margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
               child: TextField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
+                  border: OutlineInputBorder(borderRadius: const BorderRadius.all(const Radius.circular(10.0))),
+                  labelText: 'Пароль',
                 ),
               ),
             ),
@@ -41,21 +39,28 @@ class Login extends StatelessWidget {
                   margin: EdgeInsets.only(right: 10.0),
                   height: 48.0,
                   child: RaisedButton(
-                    //TODO :кнопка на всю высоту
-
-                    onPressed: () {
+                    //TODO :кнопка на всю высоту сделано коряво
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                    ),
+                    onPressed: () =>
                       Navigator.pushNamedAndRemoveUntil(
                           context,
                           "/home",
                           (route) =>
-                              false); //TODO :функция проверки входа и правильности данных
-                    },
+                              false), //TODO :функция проверки входа и правильности данных
                     child: Text("Войти"),
                   ),
                 ),
               ),
-              Image(
-                image: AssetImage('assets/qr_code.png'),
+              GestureDetector(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Image(
+                    image: AssetImage('assets/qr_code.png'),
+                  ),
+                ),
+                onTap: ()=>Navigator.pushNamed(context, "/camera"),//TODO :открытие активности с камерой
               )
             ])
           ],

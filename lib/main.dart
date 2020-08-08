@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/login.dart';
+import 'package:flutter_app/qr_camera.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         '/': (context) => Login(),
-        '/home' : (context) => MyHomePage()
+        '/home' : (context) => MyHomePage(),
+        '/camera' : (context) => QRCamera()
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter',
