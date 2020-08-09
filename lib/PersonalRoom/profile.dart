@@ -11,7 +11,7 @@ class _ProfileState extends State<Profile> {
   int _selectedIndex = 4;
   static const double size = 12;
   static const Color _color = Color(0xFFBDBDBD);
-  static const TextStyle _textStyle = TextStyle(color: _color, fontSize: size);
+  static const TextStyle _textStyle = TextStyle(fontSize: size);
 
   void _onItemTapped(int index) {
     setState(() {
@@ -41,28 +41,29 @@ class _ProfileState extends State<Profile> {
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings, color: _color),
+              icon: Icon(Icons.settings),
               title: Text('Настройки', style: _textStyle),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.toc, color: _color),
-              title: Text('Тесты', style: _textStyle), //TODO ЕБАНЫЕ ЦВЕТА
+              icon: Icon(Icons.toc),
+              title: Text('Тесты', style: _textStyle),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.message, color: _color),
+              icon: Icon(Icons.message),
               title: Text('Сообщения', style: _textStyle),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.event_note, color: _color),
+              icon: Icon(Icons.event_note),
               title: Text('Расписание', style: _textStyle),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person, color: _color),
+              icon: Icon(Icons.person),
               title: Text('Профиль', style: _textStyle),
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.amber,
+          selectedItemColor: Color(0xFF0091EA),
+          unselectedItemColor: _color,
           onTap: _onItemTapped,
           showUnselectedLabels: true,
         ));
@@ -132,7 +133,7 @@ class InfoFacWork extends StatelessWidget {
         child: Container(
           color: Colors.white,
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(5),
             child: Center(
                 child: Container(
                     color: Colors.white,
@@ -211,7 +212,9 @@ class CardTextField extends StatelessWidget {
               child: Padding(
                   padding: EdgeInsets.fromLTRB(padding_between, padding_between,
                       padding_between, padding_between),
-                  child: CardText("assets/achievements.png", "Достижения")),
+                  child: GestureDetector(
+                      onTap: ()=>Navigator.pushNamed(context, "/profile/achievements"),
+                      child: CardText("assets/achievements.png", "Достижения"))),
             ),
             Expanded(
               child: Padding(
