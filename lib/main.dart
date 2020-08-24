@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/PersonalRoom/achievements.dart';
 import 'package:flutter_app/PersonalRoom/library.dart';
 import 'package:flutter_app/login.dart';
-import 'file:///C:/Users/Exlibeard/AndroidStudioProjects/flutter_app/lib/PersonalRoom/profile.dart';
 import 'package:flutter_app/qr_camera.dart';
 import 'package:flutter/services.dart';
 
-void main() {
-  SystemChrome.setEnabledSystemUIOverlays ([]);
-  runApp(MyApp());
-}
+import 'PersonalRoom/profile.dart';
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays ([]);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown
+    ]);
     return MaterialApp(
       initialRoute: "/",
       routes: {

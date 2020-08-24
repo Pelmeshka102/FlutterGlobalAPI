@@ -1,77 +1,53 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-
-double fontSize = 20;
+import 'Components/ConstValues.dart';
 
 class QRCamera extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF0091EA),
+        backgroundColor: appColor,
         body: SafeArea(
-            child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: Text("Наведите камеру на QR-код",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "Roboto",
-                        fontSize: fontSize)),
-              ),
-              //TODO : сделать камеру
-              CircularBorder(
-                width: 5,
-                size: 200,
-                color: Colors.grey,
-                icon: Icon(Icons.photo_camera, color: Colors.grey),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: RaisedButton(
-                    elevation: 0.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              margin: insets10,
+              child: Text("Наведите камеру на QR-код", style: textStyle20),
+            ),
+            CircularBorder(
+              width: 5,
+              size: 200,
+              color: Colors.grey,
+              icon: Icon(Icons.photo_camera, color: Colors.grey),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: RaisedButton(
+                  elevation: 0.0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                  ),
+                  child: Container(
+                    margin: insets35,
+                    padding: insets10,
+                    decoration: BoxDecoration(
+                      borderRadius: radius25,
+                      border: border1,
                     ),
-                    color: Colors.transparent,
-                    child: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(25)),
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 1.0,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(25),
-                          child: Text("Загрузить QR из галереи",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: "Roboto",
-                                  fontSize: fontSize)),
-                        ),
-                      ),
-                    ),
-                    onPressed: () => null //TODO открытие галереи
-                    ),
-              ),
-              GestureDetector(
-                child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text("Войти с помощью логина",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Roboto",
-                            fontSize: fontSize))),
-                onTap: () => Navigator.pop(context),
-              )
-            ],
-          ),
+                    child: Text("Загрузить QR из галереи", style: textStyle20),
+                  ),
+                  onPressed: () => null
+                  ),
+            ),
+            GestureDetector(
+              child: Container(
+                  margin: insets10,
+                  child: Text("Войти с помощью логина", style: textStyle20)),
+              onTap: () => Navigator.pop(context),
+            )
+          ],
         )));
   }
 }

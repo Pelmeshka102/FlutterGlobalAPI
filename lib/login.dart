@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Components/ConstValues.dart';
 
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF0091EA),
+        backgroundColor: appColor,
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.all(25.0),
